@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./abstract/variables";
+
+@import "./base/base";
+@import "./base/typography";
+
+@import "./layout/header";
