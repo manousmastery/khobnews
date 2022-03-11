@@ -1,12 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getCateogries } from '../services';
 import Link from 'next/link';
 
-const categories = [
-	{ nom: 'Editorial', lien: 'editorial' },
-	{ nom: 'Politique', lien: 'politique' }
-];
-
 const Header = () => {
+	const [ rubriques, setRubriques ] = useState([]);
+	useEffect(() => {
+		getCateogries().then((nouvelleRubriques) => setRubriques(nouvelleRubriques));
+	}, []);
+
 	return (
 		// <div className='container mx-auto px-10 mb-8'>
 		//   <div className='border-b w-full inline-block border-blue-400 py-8'>
@@ -18,14 +19,14 @@ const Header = () => {
 		//       </Link>
 		//     </div>
 		//     <div className='hidden md:float-left md:contents'>
-		//       {categories.map((categorie) => (
+		//       {rubriques.map((rubrique) => (
 		//         <Link
-		//           key={categorie.lien}
-		//           href={`/categories`}
-		//           as={`/rubriques/${categorie.lien}`}
+		//           key={rubrique.lien}
+		//           href={`/rubriques`}
+		//           as={`/rubriques/${rubrique.lien}`}
 		//         >
 		//           <span className='md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer'>
-		//             {categorie.nom}
+		//             {rubrique.nom}
 		//           </span>
 		//         </Link>
 		//       ))}
@@ -40,13 +41,9 @@ const Header = () => {
 					</Link>
 				</div>
 				<div className=''>
-					{categories.map((categorie) => (
-						<Link
-							key={categorie.lien}
-							href={`/categories`}
-							as={`/rubriques/${categorie.lien}`}
-						>
-							<span className=''>{categorie.nom}</span>
+					{rubriques.map((rubrique) => (
+						<Link key={rubrique.lien} href={`/categories`} as={`/rubrique/${rubrique.lien}`}>
+							<span className=''>{rubrique.nom}</span>
 						</Link>
 					))}
 				</div>
