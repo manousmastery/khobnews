@@ -9,9 +9,9 @@ const Header = () => {
 	}, []);
 
 	return (
-		<div className='header'>
-			<div className='header-container'>
-				<div className='header-title-container'>
+		<div className=''>
+			<div className=''>
+				<div className=''>
 					<Link href='/'>
 						<span className='header-title'>Khobnews</span>
 					</Link>

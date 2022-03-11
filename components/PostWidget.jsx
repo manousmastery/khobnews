@@ -18,26 +18,22 @@ const PostWidget = ({ rubriques, lien }) => {
 		[ lien ]
 	);
 	return (
-		<div className='bg-white shadow-lg rounded-lg p-8 mb-8'>
-			<h3 className='text-xl mb-8 font-semibold border-b pb-4'>
-				{lien ? 'Related articles' : 'Articles récents'}
-			</h3>
+		<div className=''>
+			<h3 className=''>{lien ? 'Related articles' : 'Articles récents'}</h3>
 			{relatedPosts.map((article) => (
-				<div key={article.titre} className='flex items-center w-full mb-4'>
-					<div className='w-16 flex-none'>
+				<div key={article.titre} className=''>
+					<div className=''>
 						<img
 							alt={article.titre}
 							height='60px'
 							width='60px'
-							className='align-middle rounded-full'
+							className=''
 							src={article.image.url}
 						/>
 					</div>
-					<div className='flex-grow ml-4'>
-						<p className='text-gray-500 font-sx'>
-							{moment(article.createdAt).locale('fr').format('MMM DD, YYYY')}
-						</p>
-						<Link href={`/article/${article.lien}`} key={article.titre} className='text-md'>
+					<div className=''>
+						<p className=''>{moment(article.createdAt).locale('fr').format('MMM DD, YYYY')}</p>
+						<Link href={`/article/${article.lien}`} key={article.titre} className=''>
 							{article.titre}
 						</Link>
 					</div>
