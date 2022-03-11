@@ -31,9 +31,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-	const posts = await getPosts();
+	const articles = await getPosts();
 	return {
-		paths: posts.map(({ node: { lien } }) => ({ params: { lien } })),
+		paths: articles.map(({ node: { lien } }) => ({ params: { lien } })),
 		fallback: false
 	};
 }
