@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import { PostCard, Categories, PostWidget } from '../components';
-import { getPosts } from '../services';
+import { ArticleCard, ArticleWidget, Rubriques } from '../components';
+import { getArticles } from '../services';
 
 export default function Home({ articles }) {
 	return (
@@ -11,12 +11,12 @@ export default function Home({ articles }) {
 			</Head>
 			<div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
 				<div className='lg:col-span-8 col-span-1'>
-					{articles.map((article) => <PostCard article={article.node} key={article.titre} />)}
+					{articles.map((article) => <ArticleCard article={article.node} key={article.titre} />)}
 				</div>
 				<div className='lg:col-span-4 col-span-1'>
 					<div className='lg:sticky relative top-8'>
-						<PostWidget />
-						<Categories />
+						<ArticleWidget />
+						<Rubriques />
 					</div>
 				</div>
 			</div>
@@ -25,6 +25,6 @@ export default function Home({ articles }) {
 }
 
 export async function getStaticProps() {
-	const articles = (await getPosts()) || [];
+	const articles = (await getArticles()) || [];
 	return { props: { articles } };
 }

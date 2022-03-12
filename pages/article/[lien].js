@@ -1,21 +1,21 @@
 import React from 'react';
-import { PostDetail, Categories, PostWidget } from '../../components';
-import { getPosts, getPost } from '../../services';
+import { ArticleDetail, Rubriques, ArticleWidget } from '../../components';
+import { getArticles, getArticle } from '../../services';
 
-const PostDetails = ({ article }) => {
+const ArticleDetails = ({ article }) => {
 	return (
 		<div className='container mx-auto px-10 mb-8'>
 			<div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
 				<div className='col-span-1 lg:col-span-8'>
-					<PostDetail article={article} />
+					<ArticleDetail article={article} />
 				</div>
 				<div className='col-span-1 lg:col-span-4'>
 					<div className='relative lg:sticky top-8'>
-						<PostWidget
+						<ArticleWidget
 							lien={article.lien}
 							rubriques={article.rubriques.map((rubrique) => rubrique.lien)}
 						/>
-						<Categories />
+						<Rubriques />
 					</div>
 				</div>
 			</div>
@@ -23,15 +23,15 @@ const PostDetails = ({ article }) => {
 	);
 };
 
-export default PostDetails;
+export default ArticleDetails;
 
 export async function getStaticProps({ params }) {
-	const data = await getPost(params.lien);
+	const data = await getArticle(params.lien);
 	return { props: { article: data } };
 }
 
 export async function getStaticPaths() {
-	const articles = await getPosts();
+	const articles = await getArticles();
 	return {
 		paths: articles.map(({ node: { lien } }) => ({ params: { lien } })),
 		fallback: false

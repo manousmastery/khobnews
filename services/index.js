@@ -2,9 +2,9 @@ import { request, gql } from 'graphql-request';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getPosts = async () => {
+export const getArticles = async () => {
 	const query = gql`
-		query GetPosts {
+		query GetArticles {
 			articlesConnection {
 				edges {
 					node {
@@ -33,9 +33,9 @@ export const getPosts = async () => {
 	return result.articlesConnection.edges;
 };
 
-export const getPost = async (lien) => {
+export const getArticle = async (lien) => {
 	const query = gql`
-		query GetPost($lien: String!) {
+		query GetArticle($lien: String!) {
 			article(where: { lien: $lien }) {
 				autheur {
 					nom
@@ -63,9 +63,36 @@ export const getPost = async (lien) => {
 	return result.article;
 };
 
-export const getRecentPosts = async () => {
+export const getArticlesByRubrique = async (lien) => {
 	const query = gql`
-  query GetPostDetails(){
+		query getArticlesByRubrique($lien: String!) {
+			articles(where: { rubriques_some: { lien: $lien } }) {
+				autheur {
+					nom
+					id
+				}
+				createdAt
+				extrait
+				lien
+				titre
+				image {
+					url
+				}
+				rubriques {
+					nom
+					lien
+				}
+			}
+		}
+	`;
+	const result = await request(graphqlAPI, query, { lien });
+
+	return result.articles;
+};
+
+export const getRecentArticles = async () => {
+	const query = gql`
+  query GetArticleDetails(){
     articles(
       orderBy: createdAt_ASC
       last: 3
@@ -85,9 +112,9 @@ export const getRecentPosts = async () => {
 	return result.articles;
 };
 
-export const getSimilarPosts = async (rubriques, lien) => {
+export const getSimilarArticles = async (rubriques, lien) => {
 	const query = gql`
-		query GetPostDetails($lien: String!, $rubriques: [String!]) {
+		query GetArticleDetails($lien: String!, $rubriques: [String!]) {
 			articles(
 				where: { lien_not: $lien, AND: { rubriques_some: { lien_in: $rubriques } } }
 				last: 3
@@ -108,7 +135,7 @@ export const getSimilarPosts = async (rubriques, lien) => {
 	return result.articles;
 };
 
-export const getCateogries = async () => {
+export const getRubriques = async () => {
 	const query = gql`
 		query GetCategories {
 			rubriques {

@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import Link from 'next/link';
 
-import { getRecentPosts, getSimilarPosts } from '../services';
+import { getRecentArticles, getSimilarArticles } from '../services';
 
-const PostWidget = ({ rubriques, lien }) => {
-	const [ relatedPosts, setRelatedPosts ] = useState([]);
+const ArticleWidget = ({ rubriques, lien }) => {
+	const [ relatedArticles, setRelatedArticles ] = useState([]);
 
 	useEffect(
 		() => {
 			if (lien) {
-				getSimilarPosts(rubriques, lien).then((result) => setRelatedPosts(result));
+				getSimilarArticles(rubriques, lien).then((result) => setRelatedArticles(result));
 			} else {
-				getRecentPosts().then((result) => setRelatedPosts(result));
+				getRecentArticles().then((result) => setRelatedArticles(result));
 			}
 		},
 		[ lien ]
@@ -20,7 +20,7 @@ const PostWidget = ({ rubriques, lien }) => {
 	return (
 		<div className=''>
 			<h3 className=''>{lien ? 'Related articles' : 'Articles récents'}</h3>
-			{relatedPosts.map((article) => (
+			{relatedArticles.map((article) => (
 				<div key={article.titre} className=''>
 					<div className=''>
 						<img
@@ -43,4 +43,4 @@ const PostWidget = ({ rubriques, lien }) => {
 	);
 };
 
-export default PostWidget;
+export default ArticleWidget;

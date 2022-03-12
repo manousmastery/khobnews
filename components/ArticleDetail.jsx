@@ -3,7 +3,7 @@ import moment from 'moment';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Link from 'next/link';
 
-const PostDetail = ({ article }) => {
+const ArticleDetail = ({ article }) => {
 	const firstLetterUpperCase = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	};
@@ -34,4 +34,4 @@ const PostDetail = ({ article }) => {
 	);
 };
 
-export default PostDetail;
+export default ArticleDetail;

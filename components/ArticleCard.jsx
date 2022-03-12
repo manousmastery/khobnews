@@ -3,7 +3,7 @@ import moment from 'moment';
 import Link from 'next/link';
 import 'moment/locale/fr';
 
-const PostCard = ({ article }) => {
+const ArticleCard = ({ article }) => {
 	const firstLetterUpperCase = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	};
@@ -37,4 +37,4 @@ const PostCard = ({ article }) => {
 	);
 };
 
-export default PostCard;
+export default ArticleCard;
