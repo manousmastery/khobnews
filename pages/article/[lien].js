@@ -4,13 +4,13 @@ import { getArticles, getArticle } from '../../services';
 
 const ArticleDetails = ({ article }) => {
 	return (
-		<div className='container mx-auto px-10 mb-8'>
-			<div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
-				<div className='col-span-1 lg:col-span-8'>
+		<div className=''>
+			<div className=''>
+				<div className=''>
 					<ArticleDetail article={article} />
 				</div>
-				<div className='col-span-1 lg:col-span-4'>
-					<div className='relative lg:sticky top-8'>
+				<div className=''>
+					<div className=''>
 						<ArticleWidget
 							lien={article.lien}
 							rubriques={article.rubriques.map((rubrique) => rubrique.lien)}

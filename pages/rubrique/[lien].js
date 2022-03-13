@@ -5,7 +5,7 @@ import { ArticleCard } from '../../components';
 const Rubrique = ({ articles }) => {
 	if (articles.length > 0)
 		return (
-			<div className='lg:col-span-8 col-span-1'>
+			<div className=''>
 				{articles.map((article) => <ArticleCard article={article} key={article.titre} />)}
 			</div>
 		);

@@ -1,8 +1,23 @@
-$breakpoint-lg-phone: 576px;
-$breakpoint-tablet: 768px;
-// $breakpoint-desktop: 1025px;
-// $breakpoint-large-desktop: 1200px;
-
 // COLORS
-$border-and-shadows: rgb(156, 168, 184);
-$hover: rgba(156, 168, 184, 0.281);
+$dark: rgb(29, 29, 29);
+$light: #fff;
+$primary: rgb(162, 162, 246);
+$background: rgb(244, 244, 255);
+
+// SPACING
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// BORDER
+$borderRadius: 0.75rem;
+
+// HEADER
+$headerHeight: 6.25rem;
+
+@mixin breakpoint($point) {
+	@if ($point == md) {
+		@media (min-width: 768px) {
+			@content;
+		}
+	}
+}
