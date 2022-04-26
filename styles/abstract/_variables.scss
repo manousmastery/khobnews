@@ -1,23 +1,26 @@
 // COLORS
 $dark: rgb(29, 29, 29);
-$light: #fff;
-$primary: rgb(162, 162, 246);
-$background: rgb(244, 244, 255);
+$primary: #09983b;
+$secondary: #92c452;
+$tertiary: #e9efc0;
 
-// SPACING
-$spacing-md: 1rem;
-$spacing-lg: 2rem;
+// MEDIA QUERY MANAGER
+/*
+0 - 600px : phone
+600 - 900px : tablet portait
+900 - 1200px: tablet landscape
+1200 - 1800px: desktop (default)
+1800+px: big desktop
+*/
 
-// BORDER
-$borderRadius: 0.75rem;
+@mixin respond-phone {
+	@media (max-width: 600px) {
+		@content;
+	}
+}
 
-// HEADER
-$headerHeight: 6.25rem;
-
-@mixin breakpoint($point) {
-	@if ($point == md) {
-		@media (min-width: 768px) {
-			@content;
-		}
+@mixin respond-tablet-portait {
+	@media (max-width: 900px) {
+		@content;
 	}
 }
