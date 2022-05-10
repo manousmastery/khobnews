@@ -1,33 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getRubriques } from '../services';
 import Link from 'next/link';
-import { HiOutlineMenu } from 'react-icons/hi';
-import { AiOutlineClose } from 'react-icons/ai';
-import { IoMdArrowDropdown } from 'react-icons/io';
 
-const Header = () => {
-	const [ rubriques, setRubriques ] = useState([]);
-	const [ menuOpen, setMenuOpen ] = useState(false);
-	const [ dropdown, setDropdown ] = useState(false);
-	const [ size, setSize ] = useState({ width: undefined, height: undefined });
+const useIntersection = (element, rootMargin) => {
+	const [ isVisible, setState ] = useState(false);
 
 	useEffect(() => {
-		const handleResize = () => {
-			setSize({ width: window.innerWidth, height: window.innerHeight });
-		};
+		const observer = new IntersectionObserver(
+			([ entry ]) => {
+				setState(entry.isIntersecting);
+			},
+			{ rootMargin }
+		);
 
-		window.addEventListener('resize', handleResize);
+		element.current && observer.observe(element.current);
+
+		return () => observer.unobserve(element.current);
 	}, []);
 
-	useEffect(
-		() => {
-			if (size.width > 768 && menuOpen) setMenuOpen(false);
-		},
-		[ size.width, menuOpen ]
-	);
-	const menuToggleHandler = () => {
-		setMenuOpen((open) => !open);
-	};
+	return isVisible;
+};
+
+const Header = () => {
+	const header = useRef();
+	const fixedBar = useRef();
+
+	const [ rubriques, setRubriques ] = useState([]);
+
+	const inViewport = useIntersection(header, '0px');
+
+	if (inViewport) {
+		fixedBar.current.style.opacity = 0;
+	} else if (!inViewport && fixedBar.current) {
+		fixedBar.current.style.opacity = 0.9;
+	}
 
 	useEffect(() => {
 		getRubriques().then((nouvelleRubriques) => setRubriques(nouvelleRubriques));
@@ -40,12 +46,39 @@ const Header = () => {
 					<img src='/logo.png' alt='logo' className='header--logo' />
 				</Link>
 			</div>
-			<div className='header--nav'>
+			<div className='header--nav' ref={header}>
 				{rubriques.map((rubrique) => (
 					<Link key={rubrique.lien} href={`/rubrique/${rubrique.lien}`}>
 						<span className='header--nav--button'>{rubrique.nom}</span>
 					</Link>
 				))}
+				{rubriques.map((rubrique) => (
+					<Link key={rubrique.lien} href={`/rubrique/${rubrique.lien}`}>
+						<span className='header--nav--button'>{rubrique.nom}</span>
+					</Link>
+				))}
+			</div>
+			<div className='fixedBar' ref={fixedBar}>
+				<div className='fixedBar--content'>
+					<div className='miniLogo'>
+						<Link href='/'>
+							<img src='/logo-feuille.png' alt='logo' className='header--logo' />
+							{/* <img src='/logo-papyrusmag.png' alt='logo' className='header--logo' /> */}
+						</Link>
+					</div>
+					<div className='rubriques'>
+						{rubriques.map((rubrique) => (
+							<Link key={rubrique.lien} href={`/rubrique/${rubrique.lien}`}>
+								<span className='header--nav--button'>{rubrique.nom}</span>
+							</Link>
+						))}
+						{rubriques.map((rubrique) => (
+							<Link key={rubrique.lien} href={`/rubrique/${rubrique.lien}`}>
+								<span className='header--nav--button'>{rubrique.nom}</span>
+							</Link>
+						))}
+					</div>
+				</div>
 			</div>
 		</div>
 	);

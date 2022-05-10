@@ -1,0 +1,115 @@
+.homeContainer {
+	display: block;
+	margin: 50px 3vw;
+
+	&--mainArticlesGroup {
+		padding: 10px 0 50px 0;
+
+		&--grid {
+			margin-top: 40px;
+			display: grid;
+			grid-template-columns: 3fr 2fr 2fr;
+			grid-template-rows: repeat(2, 3fr);
+			grid-auto-rows: auto;
+			column-gap: 30px;
+			row-gap: 15px;
+
+			.article:first-child {
+				grid-row-start: 1;
+				grid-row-end: -1;
+
+				.article--image {
+					height: 35%;
+				}
+
+				.article--content {
+					max-height: 600px;
+				}
+			}
+		}
+	}
+
+	&--articleGroupTitle {
+		font-family: 'Fira Sans', serif;
+		font-size: 3rem;
+	}
+}
+
+.homeContainer--mainArticlesGroup--grid .article {
+	&--title {
+		font-family: 'Fira Sans', serif;
+		font-size: 1.5rem;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+
+	&--image {
+		cursor: pointer;
+		overflow: hidden;
+		width: 100%;
+		height: 250px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+
+			&:hover {
+				transform: scale(1.1);
+				transform-origin: center;
+				transition: transform 0.5s;
+			}
+		}
+	}
+
+	&--content,
+	&--information {
+		font-size: 0.9rem;
+		color: rgb(80, 80, 80);
+		margin: 10px 0;
+	}
+
+	&--content {
+		max-height: 150px;
+		overflow: scroll;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+
+		&::-webkit-scrollbar {
+			display: none; /* Safari and Chrome */
+		}
+	}
+	&--information p {
+		display: inline;
+		font-weight: 500;
+
+		&::after {
+			content: "";
+			display: inline-block;
+			background-color: rgb(80, 80, 80);
+			height: 6px;
+			width: 6px;
+			border-radius: 100%;
+			margin: 0 5px 1px 5px;
+		}
+	}
+
+	&--rubrique {
+		font-size: 1rem;
+		font-weight: 500;
+		color: $primary;
+		margin: 10px 0;
+
+		p {
+			display: inline;
+
+			&:hover {
+				text-decoration: underline solid $primary;
+				cursor: pointer;
+			}
+		}
+	}
+}

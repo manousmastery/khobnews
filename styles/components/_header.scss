@@ -1,7 +1,7 @@
 .header {
 	display: block;
-	background-color: $dark;
-	background-color: white;
+	// margin: 0 3vw;
+	background-color: #cfc1ac;
 
 	&--top {
 		text-align: center;
@@ -10,7 +10,7 @@
 
 	&--logo {
 		height: auto;
-		width: 15vw;
+		width: 12vw;
 		cursor: pointer;
 	}
 
@@ -19,18 +19,21 @@
 		justify-content: space-around;
 		align-items: center;
 		padding: 0.5rem;
-		// border-top: 1px solid $dark;
-		// border-bottom: 1px solid $dark;
+		font-size: 1.2rem;
+		border-top: 1px solid $dark;
+		border-bottom: 1px solid $dark;
 		overflow-y: scroll;
-		scrollbar-width: none; /* Firefox */
+		scrollbar-width: none; /* Firefox *
 		-ms-overflow-style: none; /* Internet Explorer 10+ */
-		background: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 1) 0%,
-			$tertiary 4%,
-			$tertiary 96%,
-			rgba(255, 255, 255, 1) 100%
-		);
+
+		background-color: $background-dark;
+		// background: linear-gradient(
+		// 	to right,
+		// 	$background 0%,
+		// 	$background-dark 4%,
+		// 	$background-dark 96%,
+		// 	$background 100%
+		// );
 
 		@include respond-tablet-portait {
 			justify-content: space-between;
@@ -51,6 +54,54 @@
 			&:hover {
 				color: $primary;
 				border-bottom: 1px solid $secondary;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+.header {
+	.fixedBar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		z-index: 2;
+		border-top: 1px solid $dark;
+		border-bottom: 1px solid $dark;
+		// background: linear-gradient(
+		// 	to right,
+		// 	$background 0%,
+		// 	$background-dark 4%,
+		// 	$background-dark 96%,
+		// 	$background 100%
+		// );
+		background-color: $background-dark;
+		opacity: 0;
+		height: 35px;
+		transition: opacity 0.2s ease-in;
+
+		&--content {
+			position: relative;
+			margin: 0 3vw;
+			display: block;
+
+			.miniLogo {
+				position: absolute;
+				left: 0;
+				img {
+					height: 30px;
+					width: auto;
+				}
+			}
+
+			.rubriques {
+				margin-left: 50px;
+				display: flex;
+				justify-content: space-around;
+				padding: 3px;
+
+				font-size: 1.2rem;
 			}
 		}
 	}

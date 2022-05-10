@@ -94,16 +94,24 @@ export const getRecentArticles = async () => {
 	const query = gql`
   query GetArticleDetails(){
     articles(
-      orderBy: createdAt_ASC
-      last: 3
+      orderBy: createdAt_DESC
+      first: 5
     ){
-      createdAt
-      extrait
-      lien
-      titre
-      image {
-        url
-      }
+			autheur {
+				nom
+				id
+			}
+			createdAt
+			extrait
+			lien
+			titre
+			image {
+				url
+			}
+			rubriques {
+				nom
+				lien
+			}
     }
   }`;
 
