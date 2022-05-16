@@ -1,1 +1,1 @@
-# A News website using REACT ang GraphQL
+# A News website using REACT and GraphQL
