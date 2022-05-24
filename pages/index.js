@@ -8,7 +8,7 @@ export default function Home({ articles }) {
 		<div className='homeContainer'>
 			<Head>
 				<title>Pa'pyrus mag</title>
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/logo-feuille.png' />
 			</Head>
 			<div className='homeContainer--mainArticlesGroup'>
 				<span className='homeContainer--articleGroupTitle'>À la une</span>
