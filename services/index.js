@@ -145,8 +145,8 @@ export const getSimilarArticles = async (rubriques, lien) => {
 
 export const getRubriques = async () => {
 	const query = gql`
-		query GetCategories {
-			rubriques {
+		query GetRubriques {
+			rubriques(where: {article_some: {}}, orderBy: ordre_ASC) {
 				nom
 				lien
 			}
@@ -156,4 +156,35 @@ export const getRubriques = async () => {
 	const result = await request(graphqlAPI, query);
 
 	return result.rubriques;
+};
+
+export const getRecentArticlesByRubrique = async (lien) => {
+	const query = gql`
+		query getRecentArticlesByRubrique($lien: String!) {
+			articles(
+				where: { rubriques_some: { lien: $lien } }
+				first: 5
+				orderBy: createdAt_DESC
+				) {
+				autheur {
+					nom
+					id
+				}
+				createdAt
+				extrait
+				lien
+				titre
+				image {
+					url
+				}
+				rubriques {
+					nom
+					lien
+				}
+			}
+		}
+	`;
+	const result = await request(graphqlAPI, query, { lien });
+
+	return result.articles;
 };

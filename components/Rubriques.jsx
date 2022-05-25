@@ -13,7 +13,7 @@ const Rubriques = () => {
 		<div className=''>
 			<h3 className=''>Rubriques</h3>
 			{rubriques.map((rubrique) => (
-				<Link key={rubrique.lien} href={`./rubrique/${rubrique.lien}`}>
+				<Link key={rubrique.lien} href={`/rubrique/${rubrique.lien}`}>
 					<span className=''>{rubrique.nom}</span>
 				</Link>
 			))}

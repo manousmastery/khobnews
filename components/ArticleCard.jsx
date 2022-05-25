@@ -22,7 +22,7 @@ const ArticleCard = ({ article }) => {
 					<p className=''>.</p>
 					<div className=''>
 						<span className=''>
-							{firstLetterUpperCase(moment(article.createdAt).locale('fr').format('MMM DD, YYYY'))}
+							{firstLetterUpperCase(moment(article.createdAt).locale('fr').fromNow())}
 						</span>
 					</div>
 				</div>

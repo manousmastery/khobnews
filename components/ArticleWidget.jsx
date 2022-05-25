@@ -19,7 +19,7 @@ const ArticleWidget = ({ rubriques, lien }) => {
 	);
 	return (
 		<div className=''>
-			<h3 className=''>{lien ? 'Related articles' : 'Articles récents'}</h3>
+			<h3 className=''>{lien ? 'Vous pourriez aimer' : 'Articles récents'}</h3>
 			{relatedArticles.map((article) => (
 				<div key={article.titre} className=''>
 					<div className=''>
