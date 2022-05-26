@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { getRubriques } from '../services';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const useIntersection = (element, rootMargin) => {
@@ -41,9 +42,16 @@ const Header = () => {
 
 	return (
 		<div className='header'>
-			<div className='header--top'>
+			<div className='header__top'>
 				<Link href='/'>
-					<img src='/logo.png' alt='logo' className='header--logo' />
+					<motion.div
+						whileInView={{ scale: [0, 1.2, 1], opacity: [0, 1, 1] }}
+						transition={{ duration: 1 }}
+						className='header__top-logo'
+					>
+						<img src='/logo-feuille.png' alt='logo' />
+						<img src='/logo-papyrusmag.png' alt='logo-texte' className='logo-texte' />
+					</motion.div>
 				</Link>
 			</div>
 			<div className='header--nav' ref={header}>
@@ -63,7 +71,6 @@ const Header = () => {
 					<div className='miniLogo'>
 						<Link href='/'>
 							<img src='/logo-feuille.png' alt='logo' className='header--logo' />
-							{/* <img src='/logo-papyrusmag.png' alt='logo' className='header--logo' /> */}
 						</Link>
 					</div>
 					<div className='rubriques'>
