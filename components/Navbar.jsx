@@ -93,11 +93,9 @@ const Navbar = () => {
 			</div>
 			<div className="app__navbar-fixedNav" ref={fixedBar}>
 				<Link href='/'>
-					<motion.img
+					<img
 						src="/logo-feuille.png"
-						alt="papyrus"
-						whileInView={{ scale: [0, 0, 0, 0, 0, 1, 1, 1], opacity: [0, 0, 0, 0, 0, 1, 1, 1] }}
-						transition={{ duration: 0.2 }} />
+						alt="papyrus" />
 				</Link>
 				{rubriques.map((rubrique) => (
 					<div key={rubrique.lien} className='menu'>
@@ -112,7 +110,7 @@ const Navbar = () => {
 					<motion.img
 						src="/logo-feuille.png"
 						alt="papyrus"
-						whileInView={{ scale: [0, 0, 0, 0, 0, 1, 1, 1], opacity: [0, 0, 0, 0, 0, 1, 1, 1] }}
+						whileInView={{ scale: [0, 1], opacity: [1, 1] }}
 						transition={{ duration: 0.2 }} />
 				</Link>
 				<AiOutlineMenu onClick={() => setToggle(true)} />
