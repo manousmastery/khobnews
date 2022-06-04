@@ -100,7 +100,6 @@
     }
 
     @include respond-tablet-portait {
-
         .portrait--only {
             display: unset;
         }

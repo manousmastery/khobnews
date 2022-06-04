@@ -1,0 +1,29 @@
+.app__article {
+    padding: 2rem 5rem;
+    flex:1;
+    display: flex;
+    gap: 20px;
+    position: relative;
+
+    .app__article--article{
+        width: 100%;
+    }
+
+    .app__article--infoSection {
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    @include respond-tablet-portait {
+        padding: 4rem 2rem;
+        flex-direction: column;
+        gap: 30px;
+
+        .app__article--infoSection {
+            width: 100%;
+        }
+    }
+}

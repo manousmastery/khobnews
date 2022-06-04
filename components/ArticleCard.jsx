@@ -1,39 +1,34 @@
 import React from 'react';
 import moment from 'moment';
-import Link from 'next/link';
 import 'moment/locale/fr';
+import Link from 'next/link';
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article, className }) => {
 	const firstLetterUpperCase = (string) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	};
 
+	const formatDate = (date) => {
+		moment.locale('fr')
+		return firstLetterUpperCase(moment(date).fromNow(true));
+	}
+
 	return (
-		<div className=''>
-			<div className=''>
-				<img src={article.image.url} alt={article.titre} className='' />
-			</div>
-			<h1 className=''>
-				<Link href={`/article/${article.lien}`}>{article.titre}</Link>
-			</h1>
-			<div className=''>
-				<div className=''>
-					<p className=''>@{article.autheur.nom}</p>
-					<p className=''>.</p>
-					<div className=''>
-						<span className=''>
-							{firstLetterUpperCase(moment(article.createdAt).locale('fr').fromNow())}
-						</span>
+		<Link href={`/article/${article.lien}`}>
+			<div className={`${className}`}>
+				<div className='article--image'>
+					<img src={article.image.url} alt={article.titre} />
+				</div>
+				<div className='article--info'>
+					<p className='article--rubrique'>{article.rubriques[0].nom}</p>
+					<span className='article--title title'>{article.titre}</span>
+					<div className='article--information'>
+						<p>{article.autheur.nom}</p>
+						<span>{formatDate(article.createdAt)}</span>
 					</div>
 				</div>
-				<p className=''>{article.extrait}</p>
-				<div className=''>
-					<Link href={`/article/${article.lien}`}>
-						<span className=''>Continuer à lire</span>
-					</Link>
-				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

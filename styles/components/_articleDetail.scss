@@ -1,0 +1,21 @@
+.app__articleDetail {
+    img {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0 2rem;
+    }
+
+    span {
+        display: block;
+    }
+
+    .app__articleDetail--titre {
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .app__articleDetail--autheur, .app__articleDetail--date {
+        font-weight: 400;
+        opacity: 0.8;
+    }
+}

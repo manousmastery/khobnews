@@ -1,22 +1,28 @@
+import Head from 'next/head';
 import React from 'react';
 import { ArticleDetail, Rubriques, ArticleWidget } from '../../components';
 import { getArticles, getArticle } from '../../services';
 
 const ArticleDetails = ({ article }) => {
+	const firstLetterUpperCase = (string) => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	};
+
 	return (
-		<div className=''>
-			<div className=''>
-				<div className=''>
-					<ArticleDetail article={article} />
+		<div>
+			<Head>
+				<title>Pa'pyrus mag | {firstLetterUpperCase(article.titre)}</title>
+				<link rel='icon' href='/logo-feuille.png' />
+			</Head>
+			<div className='app__article'>
+				<div className='app__article--article'>
+					<ArticleDetail article={article}/>
 				</div>
-				<div className=''>
-					<div className=''>
-						<ArticleWidget
-							lien={article.lien}
-							rubriques={article.rubriques.map((rubrique) => rubrique.lien)}
-						/>
-						<Rubriques />
-					</div>
+				<div className='app__article--infoSection'>
+					<ArticleWidget
+						lien={article.lien}
+						rubriques={article.rubriques.map((rubrique) => rubrique.lien)}
+					/>
 				</div>
 			</div>
 		</div>
