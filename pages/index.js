@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ArticleGroup, MainArticleGroup } from '../components';
 import { getRecentArticles, getRubriques } from '../services';
+import { motion } from 'framer-motion';
 
 export default function Home({ mainArticles, rubriques }) {
 	return (
@@ -9,9 +10,20 @@ export default function Home({ mainArticles, rubriques }) {
 				<title>Pa'pyrus mag</title>
 				<link rel='icon' href='/logo-feuille.png' />
 			</Head>
-			<MainArticleGroup articles={mainArticles} titre='À la une' />
+			<motion.div
+				whileInView={{ y: [100, 50, 0], opacity: [0, 0.5, 1] }}
+				transition={{ duration: 0.5 }}
+			>
+				<MainArticleGroup articles={mainArticles} titre='À la une' />
+			</motion.div>
 			{rubriques.map((rubrique) => (
-				<ArticleGroup lien={rubrique.lien} titre={rubrique.nom} key={rubrique.lien} />
+				<motion.div
+					whileInView={{ y: [100, 50, 0], opacity: [0, 0.5, 1] }}
+					transition={{ duration: 0.5 }}
+					key={rubrique.lien}
+				>
+					<ArticleGroup lien={rubrique.lien} titre={rubrique.nom} />
+				</motion.div>
 			))}
 		</div>
 	);
