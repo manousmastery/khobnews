@@ -70,6 +70,9 @@
     padding: 0 5rem;
     height: 2.7rem;
     box-shadow: 0 0 3px rgba($dark, 0.5);
+    @include respond-tablet-portait {
+            padding: 0 2rem;
+        }
 }
 
 .app__navbar-nav {
@@ -154,6 +157,7 @@
 
     @include respond-tablet-portait {
         display: flex;
+        padding: 0 1rem 0 2rem;
 
         .sideMenu {
             opacity: 0;

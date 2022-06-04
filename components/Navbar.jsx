@@ -65,12 +65,12 @@ const Navbar = () => {
 							src="/logo-feuille.png"
 							alt="papyrus"
 							whileInView={{ scale: [0, 0, 0, 0, 0, 1, 1, 1], opacity: [0, 0, 0, 0, 0, 1, 1, 1] }}
-							transition={{ duration: 0.8 }} />
+							transition={{ duration: 2 }} />
 						<motion.img
 							src="/logo-papyrusmag.png"
 							alt="papyrusmag"
-							whileInView={{ y: [-50, 0, 10, 0, 5, 0, 2, 0], scale: [0, 1, 1, 1, 1, 1, 1, 1], opacity: [0, 1, 1, 1, 1, 1, 1, 1] }}
-							transition={{ duration: 0.8 }} />
+							whileInView={{ y: [-50, 0, -25, 0, -10, 0, -5, 0], scale: [0.5, 1, 1, 1, 1, 1, 1, 1], opacity: [1, 1, 1, 1, 1, 1, 1, 1] }}
+							transition={{ duration: 1.5 }} />
 					</div>
 				</Link>
 				<div className="app__navbar-menus">

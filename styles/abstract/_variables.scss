@@ -19,13 +19,14 @@ $light: #F3F2F4;
 */
 
 @mixin respond-phone {
-	@media (max-width: 600px) {
+	@media (max-width: 540px) {
 		@content;
 	}
 }
+	
 
 @mixin respond-tablet-portait {
-	@media (max-width: 900px) {
+	@media (max-width: 950px) {
 		@content;
 	}
 }

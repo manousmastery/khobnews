@@ -1,12 +1,10 @@
-import React from 'react'
-import { motion } from 'framer-motion';
+import React from 'react';
 
 const ArticleGroupWrapper = (Component, classNames) => ({ ...props }) => (
-    <motion.div
-        whileInView={{ y: [100, 50, 0], opacity: [0, 0, 1] }}
-        transition={{ duration: 0.6 }}
-        className={`${classNames}`}>
+    <div className={`app_container ${classNames}`}>
+        <div className={`app__wrapper`}>
         <Component {...props} />
-    </motion.div>
+        </div>
+    </div>
 )
 export default ArticleGroupWrapper
