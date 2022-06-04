@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getRecentArticles, getSimilarArticles } from '../services';
 
 const ArticleWidget = ({ rubriques, lien }) => {
-	const [ relatedArticles, setRelatedArticles ] = useState([]);
+	const [relatedArticles, setRelatedArticles] = useState([]);
 
 	useEffect(
 		() => {
@@ -15,14 +15,19 @@ const ArticleWidget = ({ rubriques, lien }) => {
 				getRecentArticles().then((result) => setRelatedArticles(result));
 			}
 		},
-		[ lien ]
+		[lien]
 	);
+
 	return (
-		<div className=''>
-			<h3 className=''>{lien ? 'Vous pourriez aimer' : 'Articles récents'}</h3>
+		<div className='app__widget'>
+			{relatedArticles.length > 0 ?
+				(<span>{lien ? 'Vous pourriez aimer' : 'Articles récents'}</span>)
+				:
+				''
+			}
 			{relatedArticles.map((article) => (
-				<div key={article.titre} className=''>
-					<div className=''>
+				<Link href={`/article/${article.lien}`} key={article.titre}>
+					<div className='app__widget--article'>
 						<img
 							alt={article.titre}
 							height='60px'
@@ -30,15 +35,10 @@ const ArticleWidget = ({ rubriques, lien }) => {
 							className=''
 							src={article.image.url}
 						/>
+						<p className='app__widget--titre'>{article.titre}</p>
+						<p className='app__widget--date'>{moment(article.createdAt).locale('fr').fromNow(true)}</p>
 					</div>
-					<div className=''>
-						<p className=''>{moment(article.createdAt).locale('fr').format('MMM DD, YYYY')}</p>
-						<Link href={`/article/${article.lien}`} key={article.titre} className=''>
-							{article.titre}
-						</Link>
-					</div>
-				</div>
-			))}
+				</Link>))}
 		</div>
 	);
 };

@@ -1,0 +1,26 @@
+.app__widget {
+    span {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 0.3rem 0 0.5rem;
+        display: block;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .app__widget--article{
+        cursor: pointer;
+        margin-bottom: 0.8rem;
+    }
+    .app__widget--date{
+        font-size: 0.7rem;
+        opacity: 0.8;
+    }
+
+    .app__widget--titre{
+        font-weight: 500;
+    }
+}

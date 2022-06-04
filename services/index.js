@@ -125,7 +125,8 @@ export const getSimilarArticles = async (rubriques, lien) => {
 		query GetArticleDetails($lien: String!, $rubriques: [String!]) {
 			articles(
 				where: { lien_not: $lien, AND: { rubriques_some: { lien_in: $rubriques } } }
-				last: 3
+				orderBy: createdAt_DESC
+				first: 5
 			) {
 				createdAt
 				extrait

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { ArticleDetail, Rubriques, ArticleWidget } from '../../components';
+import { ArticleDetail, ArticleWidget } from '../../components';
 import { getArticles, getArticle } from '../../services';
 
 const ArticleDetails = ({ article }) => {
