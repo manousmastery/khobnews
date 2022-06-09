@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getRecentArticlesByRubrique } from '../services';
 import { MainArticleGroup } from '../components';
 
-const ArticleGroup = ({ lien, titre }) => {
+const ArticleGroup = ({ lien, titre}) => {
     const [articles, setArticles] = useState([])
     useEffect(
         () => {
@@ -15,7 +15,7 @@ const ArticleGroup = ({ lien, titre }) => {
     return (
         <>
             {articles.length > 0 ? (
-                <MainArticleGroup articles={articles} titre={titre}></MainArticleGroup>
+                <MainArticleGroup articles={articles} titre={titre} className={'sans_rubrique'}></MainArticleGroup>
             ) : ""}
         </>
     )

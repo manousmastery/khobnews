@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -8,7 +9,7 @@
 }
 
 body {
-font-family: 'Work Sans', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	background-color: $background;
 	color: #404040;
 }
@@ -17,37 +18,39 @@ a {
 	text-decoration: none;
 	color: unset;
 }
- .homeContainer {
- 	@include respond-tablet-portait {
- 		margin: 45px 0 0 0;
- 	}
- }
 
- .app_container {
- 	width: 100%;
- 	min-height: 100vh;
+.homeContainer {
+	@include respond-tablet-portait {
+		margin: 45px 0 0 0;
+	}
+}
 
- 	display: flex;
- 	flex-direction: row;
- 	overflow: hidden;
- }
+.app_container {
+	width: 100%;
+	min-height: 100vh;
 
- .app__flex {
- 	display: flex;
- 	justify-content: center;
- 	align-items: center;
- }
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+}
 
- .app__wrapper {
- 	flex: 1;
- 	width: 100%;
- 	flex-direction: column;
- 	padding: 2rem 5rem;
+.app__flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
- 	@include respond-tablet-portait {
- 		padding: 2rem 2rem;
- 	}
- }
+.app__wrapper {
+	flex: 1;
+	width: 100%;
+	flex-direction: column;
+	padding: 2rem 5rem;
+
+	@include respond-tablet-portait {
+		padding: 4rem 2rem;
+	}
+}
+
 .base-text {
 	font-weight: 400;
 }
@@ -56,14 +59,11 @@ a {
 	font-weight: 700;
 	text-transform: uppercase;
 }
+
 .menu {
 	font-weight: 600;
 	font-size: 0.9rem;
 	text-transform: uppercase;
 	position: relative;
 	cursor: pointer;
-}
-img {
-	width: 100px;
-	height: auto;
 }

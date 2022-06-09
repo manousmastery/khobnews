@@ -4,7 +4,6 @@ import { Header, Navbar } from './';
 const Layout = ({ children }) => {
   return (
     <>
-      {/* <Header /> */}
       <Navbar />
       {children}
     </>

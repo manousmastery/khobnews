@@ -1,0 +1,41 @@
+.app__rubriques {
+    display: flex;
+    gap: 2rem;
+
+    &--titre {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+.app__rubriques--articles {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+
+    .article--image img {
+        width: 100%;
+        aspect-ratio: 1;
+    }
+
+    @include respond-tablet-portait {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    @include respond-phone {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.app__rubriques--article {
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.03);
+        transition: transform 0.5s;
+    }
+}

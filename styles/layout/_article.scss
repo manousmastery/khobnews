@@ -1,16 +1,16 @@
 .app__article {
     padding: 2rem 5rem;
-    flex:1;
+    flex: 1;
     display: flex;
-    gap: 20px;
+    gap: 1.5rem;
     position: relative;
 
-    .app__article--article{
-        width: 100%;
+    .app__article--article {
+        width: 85%;
     }
 
     .app__article--infoSection {
-        width: 20vw;
+        width: 35vw;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -19,8 +19,25 @@
 
     @include respond-tablet-portait {
         padding: 4rem 2rem;
+        gap: 30px;
+
+        .app__article--article {
+            width: 100%;
+        }
+
+        .app__article--infoSection {
+            width: 35vw;
+        }
+    }
+
+    @include respond-tablet {
         flex-direction: column;
         gap: 30px;
+
+
+        .app__article--article {
+            width: 100%;
+        }
 
         .app__article--infoSection {
             width: 100%;

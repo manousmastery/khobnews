@@ -24,9 +24,14 @@ $light: #F3F2F4;
 	}
 }
 	
-
 @mixin respond-tablet-portait {
-	@media (max-width: 950px) {
+	@media (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin respond-tablet {
+	@media (max-width: 600px) {
 		@content;
 	}
 }

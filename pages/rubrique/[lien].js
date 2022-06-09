@@ -14,8 +14,11 @@ const Rubrique = ({ articles, lien }) => {
 				<title>Pa'pyrus mag | {firstLetterUpperCase(lien)}</title>
 				<link rel='icon' href='/logo-feuille.png' />
 			</Head>
-			<div >
-				{articles.map((article) => <ArticleCard article={article} key={article.titre} />)}
+			<div className='app__wrapper app__rubriques'>
+				<span className='app__rubriques--titre'>{lien}</span>
+				<div className='app__rubriques--articles'>
+					{articles.map((article) => <ArticleCard article={article} key={article.titre} className={'app__rubriques--article'}/>)}
+				</div>
 			</div>
 		</>
 	)

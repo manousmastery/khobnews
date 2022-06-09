@@ -20,7 +20,6 @@ const ArticleCard = ({ article, className }) => {
 					<img src={article.image.url} alt={article.titre} />
 				</div>
 				<div className='article--info'>
-					<p className='article--rubrique'>{article.rubriques[0].nom}</p>
 					<span className='article--title title'>{article.titre}</span>
 					<div className='article--information'>
 						<p>{article.autheur.nom}</p>
