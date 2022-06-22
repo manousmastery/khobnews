@@ -1,0 +1,58 @@
+.app__nousJoindre {
+    padding: 4rem 2rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    &--titre {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &--form {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: minmax(auto, 30rem);
+
+        textarea,
+        input,
+        button {
+            padding: 0.5rem;
+            font-size: 1.1rem;
+            border: 0;
+            border-radius: 5px;
+            box-shadow: 0 0 3px rgba($dark, 0.5);
+        }
+
+        textarea:focus,
+        input:focus {
+            outline: none;
+        }
+
+        button {
+            background-color: $primary;
+            color: $light;
+            font-weight: 600;
+            text-transform: uppercase;
+            max-width: fit-content;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(0.9);
+                transition: transform 0.5s;
+            }
+        }
+
+        textarea,
+        input {
+            color: rgba($dark, 0.7)
+        }
+
+        textarea {
+            min-width: 20rem;
+            max-width: 30rem;
+        }
+    }
+}

@@ -189,3 +189,13 @@ export const getRecentArticlesByRubrique = async (lien) => {
 
 	return result.articles;
 };
+
+export const nousContacter = async ({ nom, email, message }) => {
+	const query = gql`
+		mutation CreateNousContacter($nom: String!, $email: String!, $message: String!){
+			createNousContacter(data: {nom: $nom, email: $email, message: $message}) {
+			  id
+			}
+		  }`;
+	await request(graphqlAPI, query, { nom, email, message });
+};
