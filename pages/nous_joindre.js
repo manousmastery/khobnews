@@ -25,15 +25,17 @@ const NousJoindre = () => {
                 <title>Pa'pyrus mag | Nous contacter</title>
                 <link rel='icon' href='/logo-feuille.png' />
             </Head>
-            <div className='app__nousJoindre'>
-                <span className='app__nousJoindre--titre'>Contactez-nous</span>
-                <div className='app__nousJoindre--form'>
+            {/* <div className='app__nousJoindre'>
+                <span className='app__nousJoindre--titre'>Contactez-nous</span> */}
+                {/* <div className='app__nousJoindre--form'>
                     <input type="text" name="nom" placeholder="Votre nom.." onChange={handleChangeInput} />
                     <input type="text" name="email" placeholder="Votre email.." onChange={handleChangeInput} />
                     <textarea name="message" placeholder="Votre message.." onChange={handleChangeInput} cols={30} rows={10} />
                     <button type='button' onClick={handleSubmit}> {loading ? 'Envoi...' : 'Envoyer message'} </button>
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
+
+            <div>À venir...</div>
         </>
     )
 };

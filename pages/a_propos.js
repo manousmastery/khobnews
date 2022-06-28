@@ -8,7 +8,7 @@ const APropos = () => {
                 <title>Pa'pyrus mag | À propos</title>
                 <link rel='icon' href='/logo-feuille.png' />
             </Head>
-            <div>À propos</div>
+            <div>À venir...</div>
         </>
     )
 };
