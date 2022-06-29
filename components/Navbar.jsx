@@ -125,12 +125,12 @@ const Navbar = () => {
 									</Link>
 								</div>
 							))}
-							{/* <div className='menu separation'>
+							<div className='menu separation'>
 								<Link href='/'>À propos</Link>
 							</div>
 							<div className='menu'>
 								<Link href='/'>Nous Contacter</Link>
-							</div> */}
+							</div>
 						</div>
 					</motion.div>)
 				}
