@@ -40,6 +40,6 @@ export async function getStaticPaths() {
 	const articles = await getArticles();
 	return {
 		paths: articles.map(({ node: { lien } }) => ({ params: { lien } })),
-		fallback: false
+		fallback: 'blocking'
 	};
 }

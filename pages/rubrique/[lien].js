@@ -35,6 +35,6 @@ export async function getStaticPaths() {
 	const rubriques = await getRubriques();
 	return {
 		paths: rubriques.map(({ lien }) => ({ params: { lien } })),
-		fallback: false
+		fallback: 'blocking'
 	};
 }
