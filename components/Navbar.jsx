@@ -73,14 +73,14 @@ const Navbar = () => {
 							transition={{ duration: 1.5 }} />
 					</div>
 				</Link>
-				{/* <div className="app__navbar-menus">
+				<div className="app__navbar-menus">
 					<div className='menu'>
 						<Link href='/a_propos'>À propos</Link>
 					</div>
 					<div className='menu'>
 						<Link href='/nous_joindre'>Nous Contacter</Link>
 					</div>
-				</div> */}
+				</div>
 			</div>
 			<div className="app__navbar-nav">
 				{rubriques.map((rubrique) => (
