@@ -28,7 +28,7 @@ export default Rubrique;
 
 export async function getStaticProps({ params }) {
 	const data = await getArticlesByRubrique(params.lien);
-	return { props: { articles: data, lien: params.lien } };
+	return { props: { articles: data, lien: params.lien }, revalidate: 10, };
 }
 
 export async function getStaticPaths() {
