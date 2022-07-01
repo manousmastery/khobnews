@@ -22,7 +22,7 @@ const MainArticleGroup = ({ articles, titre, className }) => {
                             <div className='article--info'>
                                 <p className='article--rubrique'>{article.rubriques[0].nom}</p>
                                 <span className='article--title title'>{article.titre}</span>
-                                <p className='article--content'>{`${article.extrait} ${article.extrait} ${article.extrait} ${article.extrait}`}</p>
+                                <p className='article--content'>{`${article.extrait}`}</p>
                                 <div className='article--information'>
                                     <p>{article.autheur.nom}</p>
                                     <span>{formatDate(article.createdAt)}</span>
