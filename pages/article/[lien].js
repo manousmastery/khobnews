@@ -33,11 +33,8 @@ export default ArticleDetails;
 
 export async function getStaticProps({ params }) {
 	const data = await getArticle(params.lien);
-<<<<<<< HEAD
-	return { props: { article: data }, revalidate: 10 };
-=======
+	// revalidate every 10seconds
 	return { props: { article: data }, revalidate: 10, };
->>>>>>> beta
 }
 
 export async function getStaticPaths() {

@@ -31,9 +31,6 @@ export default function Home({ mainArticles, rubriques }) {
 
 export async function getStaticProps() {
 	const [mainArticles, rubriques] = await Promise.all([(await getRecentArticles() || []), (await getRubriques() || [])])
-<<<<<<< HEAD
-	return { props: { mainArticles, rubriques }, revalidate: 10 };
-=======
+	// revalidate every 10seconds
 	return { props: { mainArticles, rubriques }, revalidate: 10, };
->>>>>>> beta
 }
